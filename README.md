@@ -205,4 +205,5 @@ Testbenches are located in `testbench/` and must remain separate from the Quartu
 7. Check the **Program/Configure** box for `5CSEBA6` and click **Start**.
 8. Once the progress bar reaches **100% Successful**, the processor will execute live on hardware.
 
+### Example demonstrating the flashed program.hex with PC counting, resetting PC, and showing ALU value:
 https://github.com/user-attachments/assets/1018105e-b3ee-4b1b-b48a-a95569d67a10
