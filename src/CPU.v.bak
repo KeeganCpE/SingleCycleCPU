@@ -1,13 +1,8 @@
 module CPU(
     input clk,
-    input reset,
-    output [31:0] pc_debug,
-    output [31:0] alu_debug
+    input reset
 );
 
-    assign pc_debug = PC;
-    assign alu_debug = aluResult;
-	 
     //
     // === PROGRAM COUNTER ===
     //

@@ -1,0 +1,1369 @@
+Analysis & Synthesis report for DE10_Nano_Top
+Mon Sep 28 20:01:39 2026
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: ClkDivider:clk_div
+ 13. Port Connectivity Checks: "CPU:cpu_inst"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Sep 28 20:01:39 2026       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; DE10_Nano_Top                               ;
+; Top-level Entity Name           ; DE10_Nano_Top                               ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 137                                         ;
+; Total pins                      ; 15                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEBA6U23I7       ;                    ;
+; Top-level entity name                                                           ; DE10_Nano_Top      ; DE10_Nano_Top      ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Maximum processors allowed for parallel compilation                             ; All                ;                    ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 10          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 10          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processors 4-10        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                               ;
++----------------------------------+-----------------+---------------------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                                   ; File Name with Absolute Path                                                                            ; Library ;
++----------------------------------+-----------------+---------------------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+; ../src/writeMux.v                ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/writeMux.v          ;         ;
+; ../src/RegisterFile.v            ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/RegisterFile.v      ;         ;
+; ../src/ProgramCounter.v          ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/ProgramCounter.v    ;         ;
+; ../src/pcMux.v                   ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/pcMux.v             ;         ;
+; ../src/pcAdderImm.v              ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/pcAdderImm.v        ;         ;
+; ../src/pcAdderConst.v            ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/pcAdderConst.v      ;         ;
+; ../src/MainController.v          ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/MainController.v    ;         ;
+; ../src/InstructionMemory.v       ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/InstructionMemory.v ;         ;
+; ../src/ImmGen.v                  ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/ImmGen.v            ;         ;
+; ../src/DataMemory.v              ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/DataMemory.v        ;         ;
+; ../src/CPU.v                     ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v               ;         ;
+; ../src/aluMux.v                  ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/aluMux.v            ;         ;
+; ../src/ALUController.v           ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/ALUController.v     ;         ;
+; ../src/ALU.v                     ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/ALU.v               ;         ;
+; DE10_Nano_Top.v                  ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/DE10_Nano_Top.v    ;         ;
+; ClkDivider.v                     ; yes             ; User Verilog HDL File                       ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/ClkDivider.v       ;         ;
+; program.hex                      ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/program.hex        ;         ;
++----------------------------------+-----------------+---------------------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                              ;
++---------------------------------------------+--------------------------------------------+
+; Resource                                    ; Usage                                      ;
++---------------------------------------------+--------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 161                                        ;
+;                                             ;                                            ;
+; Combinational ALUT usage for logic          ; 270                                        ;
+;     -- 7 input functions                    ; 0                                          ;
+;     -- 6 input functions                    ; 44                                         ;
+;     -- 5 input functions                    ; 95                                         ;
+;     -- 4 input functions                    ; 37                                         ;
+;     -- <=3 input functions                  ; 94                                         ;
+;                                             ;                                            ;
+; Dedicated logic registers                   ; 137                                        ;
+;                                             ;                                            ;
+; I/O pins                                    ; 15                                         ;
+;                                             ;                                            ;
+; Total DSP Blocks                            ; 0                                          ;
+;                                             ;                                            ;
+; Maximum fan-out node                        ; CPU:cpu_inst|ALUController:alu_ctrl|Mux1~0 ;
+; Maximum fan-out                             ; 134                                        ;
+; Total fan-out                               ; 1697                                       ;
+; Average fan-out                             ; 3.88                                       ;
++---------------------------------------------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                             ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                ; Entity Name       ; Library Name ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------+-------------------+--------------+
+; |DE10_Nano_Top                 ; 270 (8)             ; 137 (0)                   ; 0                 ; 0          ; 15   ; 0            ; |DE10_Nano_Top                                     ; DE10_Nano_Top     ; work         ;
+;    |CPU:cpu_inst|              ; 222 (0)             ; 104 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|CPU:cpu_inst                        ; CPU               ; work         ;
+;       |ALU:alu|                ; 142 (142)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|CPU:cpu_inst|ALU:alu                ; ALU               ; work         ;
+;       |ALUController:alu_ctrl| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|CPU:cpu_inst|ALUController:alu_ctrl ; ALUController     ; work         ;
+;       |ImmGen:immgen|          ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|CPU:cpu_inst|ImmGen:immgen          ; ImmGen            ; work         ;
+;       |InstructionMemory:imem| ; 19 (19)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|CPU:cpu_inst|InstructionMemory:imem ; InstructionMemory ; work         ;
+;       |MainController:control| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|CPU:cpu_inst|MainController:control ; MainController    ; work         ;
+;       |ProgramCounter:pc_reg|  ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|CPU:cpu_inst|ProgramCounter:pc_reg  ; ProgramCounter    ; work         ;
+;       |RegisterFile:regs|      ; 35 (35)             ; 96 (96)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|CPU:cpu_inst|RegisterFile:regs      ; RegisterFile      ; work         ;
+;       |pcAdderImm:pc_plus_imm| ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|CPU:cpu_inst|pcAdderImm:pc_plus_imm ; pcAdderImm        ; work         ;
+;       |pcMux:pcmux|            ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|CPU:cpu_inst|pcMux:pcmux            ; pcMux             ; work         ;
+;    |ClkDivider:clk_div|        ; 40 (40)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Nano_Top|ClkDivider:clk_div                  ; ClkDivider        ; work         ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                         ;
++----------------------------------------------+---------------------------------------------+
+; Register name                                ; Reason for Removal                          ;
++----------------------------------------------+---------------------------------------------+
+; CPU:cpu_inst|RegisterFile:regs|regs[0][0]    ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][1]    ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][2]    ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][3]    ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][4]    ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][5]    ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][6]    ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][7]    ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][8]    ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][9]    ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][10]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][11]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][12]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][13]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][14]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][15]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][16]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][17]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][18]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][19]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][20]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][21]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][22]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][23]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][24]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][25]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][26]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][27]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][28]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][29]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][30]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[0][31]   ; Stuck at GND due to stuck port data_in      ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][31]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][31]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][30]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][30]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][29]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][29]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][28]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][28]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][27]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][27]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][26]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][26]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][25]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][25]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][24]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][24]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][23]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][23]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][22]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][22]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][21]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][21]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][20]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][20]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][19]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][19]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][18]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][18]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][17]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][17]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][16]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][16]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][15]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][15]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][14]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][14]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][13]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][13]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][12]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][12]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][11]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][11]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][10]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][10]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][9]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][9]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][8]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][8]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][7]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][7]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][6]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][6]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][5]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][5]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][4]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][4]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][3]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][3]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][2]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][2]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][1]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][1]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[8][0]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[9][0]    ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[10][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[11][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[12][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[13][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[14][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[15][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[16][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[17][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[18][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[19][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[20][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[21][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[22][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[23][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][0]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][1]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][2]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][3]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][4]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][5]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][6]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][7]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][8]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][9]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][10]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][11]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][12]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][13]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][14]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][15]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][16]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][17]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][18]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][19]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][20]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][21]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][22]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][23]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][24]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][25]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][26]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][27]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][28]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][29]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][30]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[27][31]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][0]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][1]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][2]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][3]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][4]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][5]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][6]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][7]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][8]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][9]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][10]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][11]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][12]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][13]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][14]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][15]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][16]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][17]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][18]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][19]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][20]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][21]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][22]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][23]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][24]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][25]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][26]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][27]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][28]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][29]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][30]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[26][31]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][0]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][1]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][2]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][3]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][4]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][5]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][6]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][7]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][8]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][9]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][10]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][11]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][12]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][13]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][14]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][15]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][16]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][17]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][18]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][19]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][20]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][21]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][22]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][23]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][24]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][25]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][26]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][27]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][28]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][29]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][30]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[25][31]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][0]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][1]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][2]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][3]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][4]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][5]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][6]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][7]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][8]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][9]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][10]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][11]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][12]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][13]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][14]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][15]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][16]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][17]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][18]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][19]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][20]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][21]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][22]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][23]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][24]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][25]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][26]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][27]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][28]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][29]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][30]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[24][31]  ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][0]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][1]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][2]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][3]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][4]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][5]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][6]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][7]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][8]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][9]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][10]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][11]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][12]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][13]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][14]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][15]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][16]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][17]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][18]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][19]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][20]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][21]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][22]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][23]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][24]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][25]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][26]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][27]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][28]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][29]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][30]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[7][31]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][0]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][1]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][2]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][3]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][4]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][5]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][6]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][7]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][8]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][9]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][10]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][11]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][12]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][13]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][14]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][15]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][16]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][17]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][18]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][19]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][20]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][21]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][22]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][23]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][24]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][25]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][26]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][27]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][28]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][29]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][30]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[6][31]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][0]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][1]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][2]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][3]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][4]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][5]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][6]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][7]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][8]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][9]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][10]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][11]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][12]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][13]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][14]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][15]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][16]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][17]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][18]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][19]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][20]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][21]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][22]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][23]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][24]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][25]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][26]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][27]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][28]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][29]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][30]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[5][31]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][0]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][1]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][2]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][3]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][4]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][5]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][6]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][7]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][8]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][9]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][10]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][11]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][12]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][13]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][14]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][15]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][16]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][17]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][18]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][19]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][20]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][21]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][22]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][23]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][24]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][25]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][26]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][27]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][28]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][29]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][30]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[4][31]   ; Stuck at GND due to stuck port clock_enable ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][0]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][1]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][2]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][3]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][4]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][5]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][6]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][7]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][8]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][9]   ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][10]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][11]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][12]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][13]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][14]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][15]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][16]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][17]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][18]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][19]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][20]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][21]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][22]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][23]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][24]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][25]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][26]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][27]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][28]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][29]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][30]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[28][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[29][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[30][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|RegisterFile:regs|regs[31][31]  ; Lost fanout                                 ;
+; CPU:cpu_inst|ProgramCounter:pc_reg|PC[8..31] ; Lost fanout                                 ;
+; Total Number of Removed Registers = 952      ;                                             ;
++----------------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                          ;
++-------------------------------------------+---------------------------+----------------------------------------------+
+; Register name                             ; Reason for Removal        ; Registers Removed due to This Register       ;
++-------------------------------------------+---------------------------+----------------------------------------------+
+; CPU:cpu_inst|RegisterFile:regs|regs[0][0] ; Stuck at GND              ; CPU:cpu_inst|RegisterFile:regs|regs[27][31], ;
+;                                           ; due to stuck port data_in ; CPU:cpu_inst|RegisterFile:regs|regs[26][31], ;
+;                                           ;                           ; CPU:cpu_inst|RegisterFile:regs|regs[25][31], ;
+;                                           ;                           ; CPU:cpu_inst|RegisterFile:regs|regs[24][31], ;
+;                                           ;                           ; CPU:cpu_inst|RegisterFile:regs|regs[7][31],  ;
+;                                           ;                           ; CPU:cpu_inst|RegisterFile:regs|regs[6][31],  ;
+;                                           ;                           ; CPU:cpu_inst|RegisterFile:regs|regs[5][31],  ;
+;                                           ;                           ; CPU:cpu_inst|RegisterFile:regs|regs[4][31]   ;
++-------------------------------------------+---------------------------+----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 137   ;
+; Number of registers using Synchronous Clear  ; 128   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 41    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 96    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |DE10_Nano_Top|CPU:cpu_inst|RegisterFile:regs|ReadData1[24] ;
+; 20:1               ; 32 bits   ; 416 LEs       ; 288 LEs              ; 128 LEs                ; No         ; |DE10_Nano_Top|CPU:cpu_inst|ALU:alu|Add0                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ClkDivider:clk_div ;
++----------------+----------+-------------------------------------+
+; Parameter Name ; Value    ; Type                                ;
++----------------+----------+-------------------------------------+
+; DIV_FACTOR     ; 25000000 ; Signed Integer                      ;
++----------------+----------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu_inst"                                                                                   ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; pc_debug[31..8]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; alu_debug[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 137                         ;
+;     CLR               ; 9                           ;
+;     CLR SCLR          ; 32                          ;
+;     ENA SCLR          ; 96                          ;
+; arriav_lcell_comb     ; 270                         ;
+;     arith             ; 73                          ;
+;         1 data inputs ; 32                          ;
+;         2 data inputs ; 34                          ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 3                           ;
+;         5 data inputs ; 3                           ;
+;     normal            ; 197                         ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 21                          ;
+;         4 data inputs ; 34                          ;
+;         5 data inputs ; 92                          ;
+;         6 data inputs ; 44                          ;
+; boundary_port         ; 15                          ;
+;                       ;                             ;
+; Max LUT depth         ; 13.60                       ;
+; Average LUT depth     ; 9.01                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Mon Sep 28 20:01:30 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_Nano_Top -c DE10_Nano_Top
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/writemux.v
+    Info (12023): Found entity 1: writeMux File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/writeMux.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/registerfile.v
+    Info (12023): Found entity 1: RegisterFile File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/RegisterFile.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/programcounter.v
+    Info (12023): Found entity 1: ProgramCounter File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/ProgramCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/pcmux.v
+    Info (12023): Found entity 1: pcMux File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/pcMux.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/pcadderimm.v
+    Info (12023): Found entity 1: pcAdderImm File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/pcAdderImm.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/pcadderconst.v
+    Info (12023): Found entity 1: pcAdderConst File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/pcAdderConst.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/maincontroller.v
+    Info (12023): Found entity 1: MainController File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/MainController.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/instructionmemory.v
+    Info (12023): Found entity 1: InstructionMemory File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/InstructionMemory.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/immgen.v
+    Info (12023): Found entity 1: ImmGen File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/ImmGen.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/datamemory.v
+    Info (12023): Found entity 1: DataMemory File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/DataMemory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/cpu.v
+    Info (12023): Found entity 1: CPU File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/alumux.v
+    Info (12023): Found entity 1: aluMux File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/aluMux.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/alucontroller.v
+    Info (12023): Found entity 1: ALUController File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/ALUController.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keega/downloads/fall2025/career/fall2026/singlecyclecpu/singlecyclecpu/src/alu.v
+    Info (12023): Found entity 1: ALU File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/ALU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file de10_nano_top.v
+    Info (12023): Found entity 1: DE10_Nano_Top File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/DE10_Nano_Top.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file clkdivider.v
+    Info (12023): Found entity 1: ClkDivider File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/ClkDivider.v Line: 1
+Info (12127): Elaborating entity "DE10_Nano_Top" for the top level hierarchy
+Info (12128): Elaborating entity "ClkDivider" for hierarchy "ClkDivider:clk_div" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/DE10_Nano_Top.v Line: 16
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:cpu_inst" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/DE10_Nano_Top.v Line: 27
+Info (12128): Elaborating entity "ProgramCounter" for hierarchy "CPU:cpu_inst|ProgramCounter:pc_reg" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 24
+Info (12128): Elaborating entity "pcAdderConst" for hierarchy "CPU:cpu_inst|pcAdderConst:pc_plus_1" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 29
+Info (12128): Elaborating entity "InstructionMemory" for hierarchy "CPU:cpu_inst|InstructionMemory:imem" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 39
+Warning (10850): Verilog HDL warning at InstructionMemory.v(9): number of words (5) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/InstructionMemory.v Line: 9
+Warning (10030): Net "mem.data_a" at InstructionMemory.v(6) has no driver or initial value, using a default initial value '0' File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/InstructionMemory.v Line: 6
+Warning (10030): Net "mem.waddr_a" at InstructionMemory.v(6) has no driver or initial value, using a default initial value '0' File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/InstructionMemory.v Line: 6
+Warning (10030): Net "mem.we_a" at InstructionMemory.v(6) has no driver or initial value, using a default initial value '0' File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/InstructionMemory.v Line: 6
+Info (12128): Elaborating entity "MainController" for hierarchy "CPU:cpu_inst|MainController:control" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 56
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "CPU:cpu_inst|RegisterFile:regs" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 73
+Info (12128): Elaborating entity "ImmGen" for hierarchy "CPU:cpu_inst|ImmGen:immgen" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 83
+Info (12128): Elaborating entity "aluMux" for hierarchy "CPU:cpu_inst|aluMux:alusrc_mux" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 95
+Info (12128): Elaborating entity "ALUController" for hierarchy "CPU:cpu_inst|ALUController:alu_ctrl" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 106
+Info (12128): Elaborating entity "ALU" for hierarchy "CPU:cpu_inst|ALU:alu" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 120
+Info (12128): Elaborating entity "DataMemory" for hierarchy "CPU:cpu_inst|DataMemory:dmem" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 134
+Info (12128): Elaborating entity "writeMux" for hierarchy "CPU:cpu_inst|writeMux:wb_mux" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 144
+Info (12128): Elaborating entity "pcAdderImm" for hierarchy "CPU:cpu_inst|pcAdderImm:pc_plus_imm" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 153
+Info (12128): Elaborating entity "pcMux" for hierarchy "CPU:cpu_inst|pcMux:pcmux" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/src/CPU.v Line: 164
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/db/DE10_Nano_Top.ram0_InstructionMemory_d1968ec4.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 664 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/DE10_Nano_Top.v Line: 3
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/DE10_Nano_Top.v Line: 4
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/DE10_Nano_Top.v Line: 4
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/keega/Downloads/Fall2025/Career/Fall2026/SingleCycleCPU/SingleCycleCPU/fpga/DE10_Nano_Top.v Line: 4
+Info (21057): Implemented 381 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 366 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4909 megabytes
+    Info: Processing ended: Mon Sep 28 20:01:39 2026
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:20
+
+

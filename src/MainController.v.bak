@@ -43,8 +43,6 @@ always @(*) begin
             branch = 1;
             aluOp  = 2'b01;
         end
-		  
-		  default: ;
     endcase
 end
 

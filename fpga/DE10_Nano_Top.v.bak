@@ -21,9 +21,7 @@ module DE10_Nano_Top (
 
     CPU cpu_inst (
         .clk(cpu_clk),
-        .reset(sys_reset),
-		  .pc_debug(pc_debug),
-		  .alu_debug(alu_debug)
+        .reset(sys_reset)
     );
 
     // Map internal CPU state to physical LEDs for hardware debugging
