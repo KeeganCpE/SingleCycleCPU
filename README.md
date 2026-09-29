@@ -26,7 +26,7 @@ This processor implements a classic single-cycle Harvard architecture (separate 
        v                                                             |
 [ ProgramCounter ] ---> [ InstructionMemory ] ---> [ MainController ]|
        |                          |                        |         |
-       +-------> [ Adders ] <----+                        v         |
+       +-------> [ Adders ] <-----+                        v         |
                     |        |                  [ Control Lines ]    |
                     v        |                            |          |
                [ pcMux ]     +--> [ ImmGen ]              |          |
